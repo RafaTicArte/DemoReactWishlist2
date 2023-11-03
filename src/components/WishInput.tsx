@@ -3,7 +3,7 @@ import { v4 as Uuid } from 'uuid';
 import { WishType } from '../hooks/Types';
 
 interface WishInputProps {
-  onNewWish: (wish: WishType) => void
+  onNewWish: (wish: WishType) => void;
 }
 
 /**

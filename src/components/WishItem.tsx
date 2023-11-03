@@ -3,8 +3,8 @@ import ClassNames from 'classnames';
 import { WishType } from '../hooks/Types';
 
 interface WishItemProps {
-  wishItem: WishType,
-  onDoneChange: (wish: WishType) => void
+  wishItem: WishType;
+  onDoneChange: (wish: WishType) => void;
 }
 
 /**

@@ -12,7 +12,9 @@ import logo from './assets/logo.svg';
  */
 function App() {
   console.log('Loading wishes...');
-  let initialWishes: WishType[] = JSON.parse(localStorage.getItem('WISHES') as string) as WishType[];
+  let initialWishes: WishType[] = JSON.parse(
+    localStorage.getItem('WISHES') as string,
+  ) as WishType[];
   if (!initialWishes) {
     initialWishes = [
       { id: Uuid(), done: false, text: 'Travel to the moon' },

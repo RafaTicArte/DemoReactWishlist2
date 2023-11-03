@@ -3,8 +3,8 @@ import WishItem from './WishItem';
 import { WishType } from '../hooks/Types';
 
 interface WishListProps {
-  wishes: WishType[],
-  onWishChange: (wish: WishType) => void
+  wishes: WishType[];
+  onWishChange: (wish: WishType) => void;
 }
 
 /**
