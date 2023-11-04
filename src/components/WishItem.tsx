@@ -29,6 +29,14 @@ function WishItem({ wishItem, onDoneChange }: WishItemProps) {
     console.log(`Render WishItem: ${wishItem.text}`);
   });
 
+  function doneChangeWish(event: React.ChangeEvent<HTMLInputElement>) {
+    onDoneChange({
+      id: wishItem.id,
+      done: event.target.checked,
+      text: wishItem.text,
+    });
+  }
+
   return (
     <li
       className={ClassNames('wish-list__item', {
@@ -39,13 +47,7 @@ function WishItem({ wishItem, onDoneChange }: WishItemProps) {
         id={`wishItem-${wishItem.id}`}
         type="checkbox"
         defaultChecked={wishItem.done}
-        onChange={(event) => {
-          onDoneChange({
-            id: wishItem.id,
-            done: event.target.checked,
-            text: wishItem.text,
-          });
-        }}
+        onChange={doneChangeWish}
       />
       <label htmlFor={`wishItem-${wishItem.id}`}>{wishItem.text}</label>
     </li>

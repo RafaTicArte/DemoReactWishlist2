@@ -1,18 +1,18 @@
 interface WishSaveProps {
-  onWishesSave: () => void;
+  onSaveWishes: () => void;
 }
 
 /**
  * Callback to run when a user clicks it.
- * @callback onWishesSave - Callback to run when a wish changes.
+ * @callback onSaveWishes - Callback to run when a wish changes.
  */
 
 /**
  * Render a button action.
- * @param {onWishesSave} callback - Callback to run when a user clicks it.
+ * @param {onSaveWishes} callback - Callback to run when a user clicks it.
  */
-function WishSave({ onWishesSave }: WishSaveProps) {
-  return <input type="button" value="Save" onClick={onWishesSave} />;
+function WishSave({ onSaveWishes }: WishSaveProps) {
+  return <input type="button" value="Save" onClick={onSaveWishes} />;
 }
 
 export default WishSave;

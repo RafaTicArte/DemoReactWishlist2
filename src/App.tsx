@@ -29,34 +29,35 @@ function App() {
     console.log(`Render App: x${appWishes.length} wishes`);
   });
 
+  function addWish(newWish: WishType) {
+    setAppWishes([...appWishes, newWish]);
+  }
+
+  function updateWish(alterWish: WishType) {
+    const updatedAppWishes = [...appWishes];
+    updatedAppWishes.forEach((wish, index) => {
+      if (wish.id === alterWish.id) {
+        updatedAppWishes[index].done = alterWish.done;
+        updatedAppWishes[index].text = alterWish.text;
+      }
+    });
+    setAppWishes(updatedAppWishes);
+  }
+
+  function saveWishes() {
+    console.log('Saving wishes...');
+    localStorage.setItem('WISHES', JSON.stringify(appWishes));
+  }
+
   return (
     <div className="app">
       <h1>My wishlist</h1>
       <div className="header-img">
         <img src={logo} alt="logo" width="50" />
       </div>
-      <WishInput
-        onNewWish={(newWish: WishType) => {
-          setAppWishes([...appWishes, newWish]);
-        }}
-      />
-      <WishList
-        wishes={appWishes}
-        onWishChange={(updatedWish: WishType) => {
-          const updatedAppWishes = [...appWishes];
-          const modifyWish: WishType | undefined = updatedAppWishes.find(
-            (wish) => wish.id === updatedWish.id,
-          );
-          modifyWish!.done = updatedWish.done;
-          setAppWishes(updatedAppWishes);
-        }}
-      />
-      <WishSave
-        onWishesSave={() => {
-          console.log('Saving wishes...');
-          localStorage.setItem('WISHES', JSON.stringify(appWishes));
-        }}
-      />
+      <WishInput onNewWish={addWish} />
+      <WishList wishes={appWishes} onChangeWish={updateWish} />
+      <WishSave onSaveWishes={saveWishes} />
     </div>
   );
 }

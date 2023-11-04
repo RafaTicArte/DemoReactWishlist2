@@ -17,24 +17,26 @@ function WishInput({ onNewWish }: WishInputProps) {
     console.log('Render WishInput');
   });
 
+  function checkNewWish(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === 'Enter' && wishInputText.current!.value.length > 0) {
+      console.log(`New Wish: ${wishInputText.current!.value}`);
+      onNewWish({
+        id: Uuid(),
+        done: false,
+        text: wishInputText.current!.value,
+      });
+      wishInputText.current!.value = '';
+    }
+  }
+
   return (
     <fieldset className="wish-input">
       <legend className="wish-input__label">New wish</legend>
       <input
+        ref={wishInputText}
         className="wish-input__field"
         placeholder="Enter your wish here"
-        ref={wishInputText}
-        onKeyUp={(event) => {
-          if (event.key === 'Enter' && wishInputText.current!.value.length > 0) {
-            console.log(`New Wish: ${wishInputText.current!.value}`);
-            onNewWish({
-              id: Uuid(),
-              done: false,
-              text: wishInputText.current!.value,
-            });
-            wishInputText.current!.value = '';
-          }
-        }}
+        onKeyUp={checkNewWish}
       />
     </fieldset>
   );
