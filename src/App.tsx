@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { v4 as Uuid } from 'uuid';
 import WishInput from './components/WishInput';
 import WishList from './components/WishList';
 import WishSave from './components/WishSave';
@@ -17,10 +16,10 @@ function App() {
   ) as WishType[];
   if (!initialWishes) {
     initialWishes = [
-      { id: Uuid(), done: false, text: 'Travel to the moon' },
-      { id: Uuid(), done: true, text: 'Make an intro course to React' },
-      { id: Uuid(), done: true, text: 'Pay the gym' },
-      { id: Uuid(), done: false, text: 'Go to the gym' },
+      { id: crypto.randomUUID(), done: false, text: 'Travel to the moon' },
+      { id: crypto.randomUUID(), done: true, text: 'Make an intro course to React' },
+      { id: crypto.randomUUID(), done: true, text: 'Pay the gym' },
+      { id: crypto.randomUUID(), done: false, text: 'Go to the gym' },
     ];
   }
   const [appWishes, setAppWishes] = useState(initialWishes);

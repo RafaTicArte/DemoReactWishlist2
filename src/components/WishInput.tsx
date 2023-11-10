@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { v4 as Uuid } from 'uuid';
 import { WishType } from '../hooks/Types';
 
 interface WishInputProps {
@@ -21,7 +20,7 @@ function WishInput({ onNewWish }: WishInputProps) {
     if (event.key === 'Enter' && wishInputText.current!.value.length > 0) {
       console.log(`New Wish: ${wishInputText.current!.value}`);
       onNewWish({
-        id: Uuid(),
+        id: crypto.randomUUID(),
         done: false,
         text: wishInputText.current!.value,
       });
