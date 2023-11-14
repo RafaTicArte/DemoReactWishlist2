@@ -6,3 +6,7 @@
 .app {
   max-width: 500px;
 }
+
+.displayModal {
+  display: block;
+}

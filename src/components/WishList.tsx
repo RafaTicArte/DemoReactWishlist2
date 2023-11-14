@@ -4,7 +4,7 @@ import { WishType } from '../hooks/Types';
 
 interface WishListProps {
   wishes: WishType[];
-  onChangeWish: (wish: WishType) => void;
+  onUpdateWish: (wish: WishType) => void;
 }
 
 /**
@@ -22,21 +22,21 @@ interface WishListProps {
  * @param {String} wishes[].id - Identifier of a wish.
  * @param {String} wishes[].text - Text of a wish.
  * @param {Boolean} wishes[].done - Done/Pending wish.
- * @param {onChangeWish} callback - Callback to run when a wish changes.
+ * @param {onUpdateWish} callback - Callback to run when a wish changes.
  */
-function WishList({ wishes, onChangeWish }: WishListProps) {
+function WishList({ wishes, onUpdateWish }: WishListProps) {
   useEffect(() => {
     console.log(`Render WishList x${wishes.length}`);
   });
 
-  function doneChangeWish(alterWish: WishType) {
-    onChangeWish(alterWish);
+  function changeWish(alterWish: WishType) {
+    onUpdateWish(alterWish);
   }
 
   return (
     <ul className="list-group mb-3">
       {wishes.map(({ id, done, text }) => (
-        <WishItem key={id} wishItem={{ id, done, text }} onDoneChange={doneChangeWish} />
+        <WishItem key={id} wishItem={{ id, done, text }} onUpdateWish={changeWish} />
       ))}
     </ul>
   );

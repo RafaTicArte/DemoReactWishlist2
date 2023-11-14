@@ -4,6 +4,7 @@ import WishList from './components/WishList';
 import WishSave from './components/WishSave';
 import { WishType } from './hooks/Types';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import './App.css';
 import logo from './assets/logo_ticarte.png';
 
@@ -60,7 +61,7 @@ function App() {
             </a>
           </div>
           <WishInput onNewWish={addWish} />
-          <WishList wishes={appWishes} onChangeWish={updateWish} />
+          <WishList wishes={appWishes} onUpdateWish={updateWish} />
           <WishSave onSaveWishes={saveWishes} />
         </div>
       </div>
