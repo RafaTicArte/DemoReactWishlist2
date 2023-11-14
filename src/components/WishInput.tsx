@@ -29,15 +29,19 @@ function WishInput({ onNewWish }: WishInputProps) {
   }
 
   return (
-    <fieldset className="wish-input">
-      <legend className="wish-input__label">New wish</legend>
+    <div className="mb-3">
+      <label htmlFor="newWishInput" className="form-label">
+        New wish
+      </label>
       <input
+        id="newWishInput"
+        type="text"
         ref={wishInputText}
-        className="wish-input__field"
+        className="form-control"
         placeholder="Enter your wish here"
         onKeyUp={checkNewWish}
       />
-    </fieldset>
+    </div>
   );
 }
 

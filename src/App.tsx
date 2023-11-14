@@ -3,8 +3,9 @@ import WishInput from './components/WishInput';
 import WishList from './components/WishList';
 import WishSave from './components/WishSave';
 import { WishType } from './hooks/Types';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import logo from './assets/logo.svg';
+import logo from './assets/logo_ticarte.png';
 
 /**
  * Render main application.
@@ -49,14 +50,20 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <h1>My wishlist</h1>
-      <div className="header-img">
-        <img src={logo} alt="logo" width="50" />
+    <div className="app container">
+      <div className="row">
+        <div className="col">
+          <h1 className="text-center mb-3">My wishlist</h1>
+          <div className="text-center mb-3">
+            <a href="https://www.ticarte.com">
+              <img src={logo} alt="TicArte" width="120" />
+            </a>
+          </div>
+          <WishInput onNewWish={addWish} />
+          <WishList wishes={appWishes} onChangeWish={updateWish} />
+          <WishSave onSaveWishes={saveWishes} />
+        </div>
       </div>
-      <WishInput onNewWish={addWish} />
-      <WishList wishes={appWishes} onChangeWish={updateWish} />
-      <WishSave onSaveWishes={saveWishes} />
     </div>
   );
 }

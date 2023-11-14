@@ -34,7 +34,7 @@ function WishList({ wishes, onChangeWish }: WishListProps) {
   }
 
   return (
-    <ul className="wish-list">
+    <ul className="list-group mb-3">
       {wishes.map(({ id, done, text }) => (
         <WishItem key={id} wishItem={{ id, done, text }} onDoneChange={doneChangeWish} />
       ))}

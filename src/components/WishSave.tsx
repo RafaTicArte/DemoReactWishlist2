@@ -12,7 +12,16 @@ interface WishSaveProps {
  * @param {onSaveWishes} callback - Callback to run when a user clicks it.
  */
 function WishSave({ onSaveWishes }: WishSaveProps) {
-  return <input type="button" value="Save" onClick={onSaveWishes} />;
+  return (
+    <div className="mb-3">
+      <input
+        type="button"
+        className="form-control btn btn-primary"
+        value="Save"
+        onClick={onSaveWishes}
+      />
+    </div>
+  );
 }
 
 export default WishSave;

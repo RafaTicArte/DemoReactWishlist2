@@ -38,18 +38,22 @@ function WishItem({ wishItem, onDoneChange }: WishItemProps) {
   }
 
   return (
-    <li
-      className={ClassNames('wish-list__item', {
-        'wish-list__item--done': wishItem.done,
-      })}
-    >
+    <li className="list-group-item">
       <input
         id={`wishItem-${wishItem.id}`}
         type="checkbox"
+        className="form-check-input me-2"
         defaultChecked={wishItem.done}
         onChange={doneChangeWish}
       />
-      <label htmlFor={`wishItem-${wishItem.id}`}>{wishItem.text}</label>
+      <label
+        htmlFor={`wishItem-${wishItem.id}`}
+        className={ClassNames({
+          'text-decoration-line-through': wishItem.done,
+        })}
+      >
+        {wishItem.text}
+      </label>
     </li>
   );
 }
