@@ -1,15 +1,16 @@
-interface WishSaveProps {
+/**
+ * Props for {@link WishSave}.
+ * @category Props
+*/
+export interface WishSaveProps {
+  /** Save a wish. */
   onSaveWishes: () => void;
 }
 
 /**
- * Callback to run when a user clicks it.
- * @callback onSaveWishes - Callback to run when a wish changes.
- */
-
-/**
- * Render a button action.
- * @param {onSaveWishes} callback - Callback to run when a user clicks it.
+ * Render a save button.
+ *  
+ * @category Components
  */
 function WishSave({ onSaveWishes }: WishSaveProps) {
   return (

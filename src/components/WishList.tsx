@@ -2,27 +2,21 @@ import { useEffect } from 'react';
 import WishItem from './WishItem';
 import { WishType } from '../hooks/Types';
 
-interface WishListProps {
+/**
+ * Props for {@link WishList}.
+ * @category Props
+ */
+export interface WishListProps {
+  /** Wish data. */
   wishes: WishType[];
+  /** Update a wish. */
   onUpdateWish: (wish: WishType) => void;
 }
 
 /**
- * Callback to run when a wish changes.
- * @callback onChangeWish - Callback to run when a wish changes.
- * @param {Object} updatedWish - Wish updated.
- * @param {String} updatedWish.id - Identifier of a wish.
- * @param {String} updatedWish.text - Text of a wish.
- * @param {Boolean} updatedWish.done - Done/Pending wish.
- */
-
-/**
- * Render list of wishes.
- * @param {Object[]} wishes - Array of wishes.
- * @param {String} wishes[].id - Identifier of a wish.
- * @param {String} wishes[].text - Text of a wish.
- * @param {Boolean} wishes[].done - Done/Pending wish.
- * @param {onUpdateWish} callback - Callback to run when a wish changes.
+ * Render a list of wishes.
+ *  
+ * @category Components
  */
 function WishList({ wishes, onUpdateWish }: WishListProps) {
   useEffect(() => {

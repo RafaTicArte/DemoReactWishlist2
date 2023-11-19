@@ -10,6 +10,7 @@ import logo from './assets/logo_ticarte.png';
 
 /**
  * Render main application.
+ * @category Components
  */
 function App() {
   console.log('Loading wishes...');

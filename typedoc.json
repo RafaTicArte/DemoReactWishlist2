@@ -1,0 +1,14 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "entryPoints": ["src"],
+    "entryPointStrategy": "expand",
+    "exclude": [
+        "src/vite-env.d.ts"
+    ],
+    "out": "doc",
+    "plugin": [
+        "typedoc-plugin-merge-modules",
+        "typedoc-plugin-missing-exports"
+    ],
+    "tsconfig": "tsconfig.json"
+}

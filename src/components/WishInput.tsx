@@ -1,13 +1,19 @@
 import { useEffect, useRef } from 'react';
 import { WishType } from '../hooks/Types';
 
-interface WishInputProps {
+/**
+ * Props for {@link WishInput}.
+ * @category Props
+ */
+export interface WishInputProps {
+  /** Create a new wish. */
   onNewWish: (wish: WishType) => void;
 }
 
 /**
- * Render an input text for adding a new wish.
- * @param {Function} onNewWish - Callback to run when a user introduces a new wish.
+ * Render a input text.
+ *  
+ * @category Components
  */
 function WishInput({ onNewWish }: WishInputProps) {
   const wishInputText = useRef<HTMLInputElement>(null);

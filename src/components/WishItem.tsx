@@ -2,27 +2,21 @@ import { useEffect, useState, useRef } from 'react';
 import ClassNames from 'classnames';
 import { WishType } from '../hooks/Types';
 
-interface WishItemProps {
+/**
+ * Props for {@link WishItem}.
+ * @category Props
+ */
+export interface WishItemProps {
+  /** Wish data. */
   wishItem: WishType;
+  /** Update a wish. */
   onUpdateWish: (wish: WishType) => void;
 }
 
 /**
- * Callback to run when a wish changes.
- * @callback onChangeWish - Callback to run when a wish changes.
- * @param {Object} updatedWish - Wish updated.
- * @param {String} updatedWish.id - Identifier of a wish.
- * @param {String} updatedWish.text - Text of a wish.
- * @param {Boolean} updatedWish.done - Done/Pending wish.
- */
-
-/**
  * Render a wish.
- * @param {Object} wishItem - Wish.
- * @param {String} wishItem[].id - Identifier of a wish.
- * @param {String} wishItem[].text - Text of a wish.
- * @param {Boolean} wishItem[].done - Done/Pending wish.
- * @param {onChangeWish} callback - Callback to run when a done/pending wish changes.
+ *  
+ * @category Components
  */
 function WishItem({ wishItem, onUpdateWish }: WishItemProps) {
   const [showModal, setShowModal] = useState(false);
